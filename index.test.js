@@ -26,6 +26,13 @@ test('returns capitalised list of employees over 18', () => {
   function isUpper(employees) {
     return employees.map(e => e.name.toUpperCase() === e.name);
   }
-  console.log(isUpper(employees));
   isUpper(employees).forEach(e => expect(e).toBe(true));
+});
+
+test('employees sorted in descending order', () => {
+  const employees = EligibleEmployeeList(18);
+
+  let alphabetisedList = [...employees].sort((a, b) => a.name.charCodeAt(0) + b.name.charCodeAt(0));
+
+  expect(employees).toEqual(alphabetisedList);
 });

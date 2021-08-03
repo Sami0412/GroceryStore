@@ -14,9 +14,9 @@ function EligibleEmployeeList(requiredAge) {
 			filteredList.push(employees[i]);
 		}
 	}
-	let alphabetisedList = filteredList.sort((a, b) => a.name.charCodeAt(0) - b.name.charCodeAt(0));
+	let alphabetisedList = filteredList.sort((a, b) => a.name.charCodeAt(0) + b.name.charCodeAt(0));
 	
-	//console.log(alphabetisedList);
+	alphabetisedList.forEach(e => e.name = e.name.toUpperCase());
 
 	return alphabetisedList;
 	//return employees.filter(e => e.age >= requiredAge)
