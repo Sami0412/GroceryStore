@@ -1,51 +1,52 @@
-const {EligibleEmployeeList} = require('./index');
+const { employeesOverEighteen, alphabetisedEmployees, capitalisedEmployees, descendingAlphabetisedEmployees } = require('./index');
 
-//pass employess into tests instead of function
 const employees = [
   {name: "Sami", age: 31},
    {name: "Paddy", age: 28},
    {name: "Ehsan", age: 17}, 
    {name: "Robin", age: 22},
    {name: "Charli", age: 16}
-  ];
+];
 
 test('returns an array', () => {
-  expect(typeof EligibleEmployeeList(18, employees)).toEqual("object");
+  expect(typeof employeesOverEighteen(employees)).toEqual("object");
 });
 
 test('returns an array containing an object', () => {
-	expect(typeof EligibleEmployeeList(18, employees)[0]).toEqual("object");
-  });
-
-test('returns an array containing employees of the correct age', () => {
-	const employeesList = EligibleEmployeeList(18, employees);
-	employeesList.forEach(e => expect(e.age).toBeGreaterThanOrEqual(18));
-  });
-
-test('returns alphabetised list of employees over 18', () => {
-  //const employees = EligibleEmployeeList(18);
-  expect(EligibleEmployeeList(18, employees)).toEqual([
-  { name: 'PADDY', age: 28 },
-  { name: 'ROBIN', age: 22 },
-  { name: 'SAMI', age: 31 }])
-  });
-
-test('returns capitalised list of employees over 18', () => {
-  const employeesList = EligibleEmployeeList(18, employees); //array of objects
-  function isUpper(employeesList) {
-    return employeesList.map(e => e.name.toUpperCase() === e.name);
-  }
-  isUpper(employeesList).forEach(e => expect(e).toBe(true));
+	expect(typeof employeesOverEighteen(employees)[0]).toEqual("object");
 });
 
-test('employees sorted in descending order', () => {
-  const employeesList = EligibleEmployeeList(18, employees);
-
-  let alphabetisedList = [
-     {name: "PADDY", age: 28},
-     {name: "ROBIN", age: 22},
-     {name: "SAMI", age: 31}
-    ];
-
-  expect(employeesList).toEqual(alphabetisedList);
+test('returns an array containing only employees who are over 18', () => {
+	expect(employeesOverEighteen(employees)).toEqual([
+    { name: 'Sami', age: 31 },
+    { name: 'Paddy', age: 28 },
+    { name: 'Robin', age: 22 }])
 });
+
+test('returns alphabetised list of employees', () => {
+  expect(alphabetisedEmployees(employees)).toEqual([
+    {name: "Charli", age: 16},
+    {name: "Ehsan", age: 17},
+    {name: "Paddy", age: 28},
+    {name: "Robin", age: 22},
+    {name: "Sami", age: 31}])
+});
+
+test('returns descending alphabetised list of employees', () => {
+  expect(descendingAlphabetisedEmployees(employees)).toEqual([
+  {name: "Sami", age: 31},
+  {name: "Robin", age: 22},
+  {name: "Paddy", age: 28},
+  {name: "Ehsan", age: 17},
+  {name: "Charli", age: 16}])
+});
+
+test('returns capitalised list of employees', () => {
+  expect(capitalisedEmployees(employees)).toEqual([
+    {name: "SAMI", age: 31},
+    {name: "PADDY", age: 28},
+    {name: "EHSAN", age: 17}, 
+    {name: "ROBIN", age: 22},
+    {name: "CHARLI", age: 16}])
+});
+
