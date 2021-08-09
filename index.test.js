@@ -34,11 +34,12 @@ test('returns alphabetised list of employees', () => {
 
 test('returns capitalised list of employees', () => {
   expect(capitalisedEmployees(employees)).toEqual([
-    {name: "CHARLI", age: 16},
-    {name: "EHSAN", age: 17},
-    {name: "PADDY", age: 28},
-    {name: "ROBIN", age: 22},
-    {name: "SAMI", age: 31}])
+    {name: "SAMI", age: 31},
+     {name: "PADDY", age: 28},
+     {name: "EHSAN", age: 17}, 
+     {name: "ROBIN", age: 22},
+     {name: "CHARLI", age: 16}
+  ])
 });
 
 test('returns descending alphabetised list of employees', () => {

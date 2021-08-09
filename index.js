@@ -1,21 +1,17 @@
 function employeesOverEighteen(employees) {
-	overEighteen = employees.filter(employee => employee.age >= 18);
-	return overEighteen;
+	return employees.filter(employee => employee.age >= 18);
 };
 
 function alphabetisedEmployees(employees) {
-	alphabetisedEmployeeList = employees.sort((a, b) => a.name.localeCompare(b.name));
-	return alphabetisedEmployeeList;
+	return employees.slice().sort((a, b) => a.name.localeCompare(b.name));
 }
 
 function capitalisedEmployees(employees) {
-	capitalisedEmployeeList = employees.map(employee => ({name : employee.name.toUpperCase(), age : employee.age}));
-	return capitalisedEmployeeList;
+	return employees.map(employee => ({name : employee.name.toUpperCase(), age : employee.age}));
 }
 
 function descendingAlphabetisedEmployees(employees) {
-	reverseAlphabetisedEmployeeList = employees.sort((a, b) => b.name.localeCompare(a.name));
-	return reverseAlphabetisedEmployeeList;
+	return employees.sort((a, b) => b.name.localeCompare(a.name));
 }
 
 
